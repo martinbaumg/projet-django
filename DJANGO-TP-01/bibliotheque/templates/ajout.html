@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+    <title>Ajouter un livre</title>
+</head>
+<body>
+    <nav>
+        <h1>Ma librairie personnalisé</h1>
+        <div class="onglets">
+            <p class="link"><a href="../">Accueil</a></p>
+            <p class="link"><a class="linka" href="#">Ajouter un livre</a></p>
+            <p class="link"><a href="../tousleslivres">Tous les livres</a></p>
+            <form>
+                <input type="search" placeholder="Rechercher">
+            </form>
+        </div>
+    </nav>
+    <form method="post" action="/traitement/">
+        {% csrf_token %}
+        {{ form.as_ul }}
+        <input type="submit" value="envoyer les données"\>
+    </form>
+</body>
+</html>

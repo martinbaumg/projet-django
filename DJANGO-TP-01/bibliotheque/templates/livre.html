@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+    <title>Tous les livres</title>
+</head>
+<body>
+    <nav>
+        <h1>Ma librairie personnalisé</h1>
+        <div class="onglets">
+            <p class="link"><a href="../">Accueil</a></p>
+            <p class="link"><a href="../ajout/">Ajouter un livre</a></p>
+            <p class="link"><a class="linka" href="#">Tous les livres</a></p>
+            <form>
+                <input type="search" placeholder="Rechercher">
+            </form>
+        </div>
+    </nav>
+    <div class="les-livres">
+        {% for l in liste %}
+            <li>
+                {{l}} date de parution {{l.date_parution|date:"d/m/Y"}}
+                <div class="details">
+                    <a href="../affiche/{{l.id}}">afficher les détails</a>
+                    <a href="../delete/{{l.id}}">effacer</a>
+                    <a href="../update/{{l.id}}">effectuer une mise à jour</a>
+                </div>
+            </li>
+        {%endfor%}
+    </div> 
+</body>
+</html>

@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+    <meta charset="UTF-8">
+    <title>Ma librairie personnalisé</title>
+</head>
+<body>
+    <nav>
+        <h1>Ma librairie personnalisé</h1>
+        <div class="onglets">
+            <p class="link"><a class="linka" href="#">Accueil</a></p>
+            <p class="link"><a href="ajout/">Ajouter un livre</a></p>
+            <p class="link"><a href="tousleslivres/">Tous les livres</a></p>
+            <form>
+                <input type="search" placeholder="Rechercher">
+            </form>
+        </div>
+    </nav>
+    <div class="fakebody">
+        <a href="ajout/" class="shiny-btn">Ajouter un livre</a>
+    </div>
+</body>
+</html>
