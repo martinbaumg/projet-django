@@ -8,15 +8,17 @@
 </head>
 <body>
 
-
-
-    <select id="maListe1" name="liste">
-        <option value="1">Romantisme</option>
-        <option value="2">Classique</option>
-        <option value="3">Fable</option>
+    <form method="POST">
+        {% csrf_token %}
+    <select name="mouvement_litteraire" id="">
+        <option selected disabled="true">choisir</option>
+        <option value="">Romantisme</option>
+        <option value="">Classicisme</option>
+        <option value="">Naturalisme</option>
+        <option value="">Humanisme</option>
     </select>
-
-
-
+    <input type="submit" value="Insert" action="show/">
+    </form>
+    
 </body>
 </html>

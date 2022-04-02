@@ -3,6 +3,8 @@ from django.http import HttpResponseRedirect
 from .forms import LivreForm
 from . import  models
 from django import forms
+from bibliotheque.models import Mouvement
+from .forms import MouvementForm
 
 def ajout(request):
     if request.method == "POST":
@@ -15,6 +17,13 @@ def ajout(request):
     else :
         form = LivreForm()
         return render(request,"ajout.html",{"form" : form})
+
+
+
+def show(request):
+    showmouv=Mouvement.objects.all()
+    return render(request, 'show.html', {"Mouvement": showmouv})
+
 
 def traitement(request):
     lform = LivreForm(request.POST)
@@ -29,19 +38,23 @@ def index(request):
     liste = list(models.Livre.objects.all())
     return render(request, 'index.html', {'liste': liste})
 
+
 def affiche(request, id):
     livre = models.Livre.objects.get(pk=id)
     return render(request,"affiche.html",{"livre" : livre})
+
 
 def delete(request, id):
     livre = models.Livre.objects.get(pk=id)
     livre.delete()
     return HttpResponseRedirect("../tousleslivres")
 
+
 def update(request, id):
     livre = models.Livre.objects.get(pk=id)
     lform = LivreForm(livre.dico())
     return render(request, "update.html", {"form": lform,"id":id})
+
 
 def traitementupdate(request, id):
     lform = LivreForm(request.POST)
@@ -53,18 +66,21 @@ def traitementupdate(request, id):
     else:
         return render(request, "update.html", {"form": lform, "id": id})
 
+
 def tous(request):
     liste = list(models.Livre.objects.all())
     return render(request, 'livre.html', {'liste': liste})
 
-def test(request):
-    ctx = {}
-    if request.method == 'POST':
-        myForm = MyForm(request.POST)
-        if myForm.is_valid():
-            r = myForm.save(commit=False)
-            ## ... ici je peux manipuler les éléments de mon formulaire
-            r.save()
-    else : myForm = MyForm()
-    ctx['myForm'] = myForm
-    return render(request, 'menu.html', ctx)
+
+# def test(request):
+#     if request.method=="POST":
+#         if request.POST.get('mouvement_litteraire'):
+#             savevalue=Mouvement()
+#             savevalue.mouvement_litteraire=request.POST.get('mouvement_litteraire')
+#             savevalue.save()
+#             messages.success(request,'Votre mouvement' +savevalue.mouvement_litteraire+ 'a été enregistré')
+#             return render(request, 'menu.html')
+#     else:
+#             return render(request, 'menu.html')
+
+

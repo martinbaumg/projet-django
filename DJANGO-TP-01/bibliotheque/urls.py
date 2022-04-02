@@ -10,5 +10,6 @@ urlpatterns = [
     path("update/<int:id>",views.update),
     path("traitementupdate/<int:id>",views.traitementupdate),
     path("tousleslivres/", views.tous),
-    path("test/", views.test)
+    # path("test/", views.test),
+    path("show/", views.show, name="testsh"),
 ]
