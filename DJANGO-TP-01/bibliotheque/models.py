@@ -15,3 +15,6 @@ class Livre(models.Model):
 
     def dico(self):
         return {"titre" : self.titre, "auteur" : self.auteur, "date_parution" : self.date_parution, "nombre_pages" : self.nombre_pages, "resume" : self.resume }
+
+class Mouvement(models.Model):
+    mouvement_litteraire = models.CharField(max_length=100)

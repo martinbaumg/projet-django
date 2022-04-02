@@ -1,3 +1,6 @@
 from django.contrib import admin
+from bibliotheque.models import Mouvement
 
-# Register your models here.
+@admin.register(Mouvement)
+class MouvementAdmin(admin.ModelAdmin):
+    list_display = ['mouvement_litteraire']
