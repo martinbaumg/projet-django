@@ -4,20 +4,25 @@ from .forms import LivreForm
 from . import  models
 from django import forms
 from bibliotheque.models import Mouvement
-from .forms import MouvementForm
+# from .forms import MouvementForm
 
 def ajout(request):
+    mouvement = Mouvement.objects.all()
     if request.method == "POST":
         form = LivreForm(request)
         if form.is_valid():
             livre = form.save()
+            mouvement = mouvement.save()
             return HttpResponseRedirect("/")
         else:
-            return render(request,"ajout.html",{"form": form})
+            return render(request,"ajout.html",{"form": form, "mouvement": mouvement})
     else :
         form = LivreForm()
-        return render(request,"ajout.html",{"form" : form})
+        return render(request,"ajout.html",{"form" : form, "mouvement": mouvement})
 
+# def ajout(request):
+#     mouvement = Mouvement.objects.all()
+#     return render(request, 'ajout.html', context={"mouvement": mouvement})
 
 
 def show(request):
@@ -68,8 +73,9 @@ def traitementupdate(request, id):
 
 
 def tous(request):
+    mouvement = Mouvement.objects.all()
     liste = list(models.Livre.objects.all())
-    return render(request, 'livre.html', {'liste': liste})
+    return render(request, 'livre.html', {'liste': liste, 'mouvement': mouvement})
 
 
 # def test(request):

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/livre.css' %}">
     <title>Tous les livres</title>
 </head>
 <body>
@@ -20,6 +20,13 @@
             </form>
         </div>
     </nav>
+    <div class="promo">
+        <div class="styles">
+            {% for mouvement in mouvement %}
+                <a href=""><p>{{ mouvement }}</p></a>
+            {% endfor %}
+        </div>
+    </div>
     <div class="les-livres">
         {% for l in liste %}
             <li>

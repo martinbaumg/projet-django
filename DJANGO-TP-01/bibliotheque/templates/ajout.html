@@ -21,6 +21,13 @@
     <form method="post" action="/traitement/">
         {% csrf_token %}
         {{ form.as_ul }}
+        <p>Mouvement littéraire :</p>
+        <select>
+            <option selected disabled="true">--Choisir--</option>
+            {% for mouvement in mouvement %}
+            <option>{{ mouvement }}</option>
+            {% endfor %}
+        </select>
         <input type="submit" value="envoyer les données"\>
     </form>
 </body>
