@@ -1,20 +1,18 @@
 from django.db import models
 
-
-
-# mouvement_litteraire = (
-#     ('','Nouveau Roman'),
-#     ('', 'Surréalisme'),
-#     ('','Symbolisme'),
-#     ('','Naturalisme'),
-#     ('','Réalisme'),
-#     ('','Romantisme'),
-#     ('','Lumières'),
-#     ('','Classicisme'),
-#     ('','Humanisme'),
-#     ('','Baroque'),
-#     ('','Autre'),
-# )
+mouvement = (
+    ('','Nouveau Roman'),
+    ('', 'Surréalisme'),
+    ('','Symbolisme'),
+    ('','Naturalisme'),
+    ('','Réalisme'),
+    ('','Romantisme'),
+    ('','Lumières'),
+    ('','Classicisme'),
+    ('','Humanisme'),
+    ('','Baroque'),
+    ('','Autre'),
+)
 
 class Livre(models.Model): 
     titre = models.CharField(max_length=100) 
@@ -22,14 +20,14 @@ class Livre(models.Model):
     date_parution = models.DateField(blank=True, null = True) 
     nombre_pages = models.IntegerField(blank=False) 
     resume = models.TextField(null = True, blank = True) 
-    # mouvement_litteraire = models.CharField(max_length=6, choices=mouvement_litteraire, blank=True)
+    mouvement = models.CharField(max_length=6, choices=mouvement, blank=True)
 
     def __str__(self):
-        chaine = f"{self.titre} écrit par {self.auteur} avec {self.nombre_pages} pages,"
+        chaine = f"{self.titre} écrit par {self.auteur} avec {self.nombre_pages} pages, faisant partie du mouvement {self.mouvement}"
         return chaine
 
     def dico(self):
-        return {"titre" : self.titre, "auteur" : self.auteur, "date_parution" : self.date_parution, "nombre_pages" : self.nombre_pages, "resume" : self.resume}
+        return {"titre" : self.titre, "auteur" : self.auteur, "date_parution" : self.date_parution, "nombre_pages" : self.nombre_pages, "resume" : self.resume, "mouvement" : self.mouvement}
 
 class Mouvement(models.Model):
     mouvement_litteraire = models.CharField(max_length=100, null=False, blank=False) 

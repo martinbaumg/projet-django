@@ -3,11 +3,12 @@ from django.http import HttpResponseRedirect
 from .forms import LivreForm
 from . import  models
 from django import forms
+from bibliotheque.models import Livre
 from bibliotheque.models import Mouvement
 # from .forms import MouvementForm
 
 def ajout(request):
-    mouvement = Mouvement.objects.all()
+    # mouvement = Mouvement.objects.all()
     if request.method == "POST":
         form = LivreForm(request)
         if form.is_valid():
@@ -15,10 +16,10 @@ def ajout(request):
             mouvement = mouvement.save()
             return HttpResponseRedirect("/")
         else:
-            return render(request,"ajout.html",{"form": form, "mouvement": mouvement})
+            return render(request,"ajout.html",{"form": form})
     else :
         form = LivreForm()
-        return render(request,"ajout.html",{"form" : form, "mouvement": mouvement})
+        return render(request,"ajout.html",{"form" : form})
 
 # def ajout(request):
 #     mouvement = Mouvement.objects.all()
@@ -73,7 +74,7 @@ def traitementupdate(request, id):
 
 
 def tous(request):
-    mouvement = Mouvement.objects.all()
+    mouvement = models.Mouvement.objects.all()
     liste = list(models.Livre.objects.all())
     return render(request, 'livre.html', {'liste': liste, 'mouvement': mouvement})
 
