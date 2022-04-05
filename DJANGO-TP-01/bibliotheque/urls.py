@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, include
 from . import views
 
 urlpatterns = [
@@ -10,6 +10,5 @@ urlpatterns = [
     path("update/<int:id>",views.update),
     path("traitementupdate/<int:id>",views.traitementupdate),
     path("tousleslivres/", views.tous),
-    # path("test/", views.test),
-    path("show/", views.show, name="testsh"),
+    path('ajax/load-modele/', views.load_modele, name='ajax_load_modele'),
 ]

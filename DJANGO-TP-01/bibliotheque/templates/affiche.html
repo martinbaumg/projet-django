@@ -3,15 +3,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/affiche.css' %}">
-    <title> fiche {{livre.titre}}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/affichee.css' %}">
+    <title> fiche {{voiture.modele}}</title>
 </head>
 <body>
     <div class="fiche">
-        <h1>{{livre.titre}}</h1>
-        <p>Ce livre est écrit par {{livre.auteur}} et est paru le {{livre.date_parution}}. Il possède {{livre.nombre_pages}} pages</p>
+        <h1>{{voiture.modele}}</h1>
+        <p>Cette {{ voiture.modele }} a été produite par {{voiture.marque}} et est paru le {{voiture.date_production}}. Elle possède {{voiture.nombre_places}} places</p>
         <h3>Résumé :</h3>
-        <p>{{livre.resume}}</p>
+        <p>rien</p>
     </div>
 </body>
 </html>

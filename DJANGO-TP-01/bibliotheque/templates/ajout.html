@@ -4,15 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
-    <title>Ajouter un livre</title>
+    <title>Ajouter une voiture</title>
 </head>
 <body>
     <nav>
-        <h1>Ma librairie personnalisé</h1>
+        <h1>Mon site de voitures personnalisées</h1>
         <div class="onglets">
             <p class="link"><a href="../">Accueil</a></p>
-            <p class="link"><a class="linka" href="#">Ajouter un livre</a></p>
-            <p class="link"><a href="../tousleslivres">Tous les livres</a></p>
+            <p class="link"><a class="linka" href="#">Ajouter une voiture</a></p>
+            <p class="link"><a href="../tousleslivres">Toutes les voitures</a></p>
             <form>
                 <input type="search" placeholder="Rechercher">
             </form>
@@ -23,5 +23,25 @@
         {{ form.as_ul }}
         <input type="submit" value="envoyer les données"\>
     </form>
+  <form method="post" id="VoitureForm" data-modele-url="{% url 'ajax_load_modele' %}" novalidate>
+    <a href="/">Retour</a>
+  </form>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script>
+    $("#id_marque").change(function () {
+      var url = $("#VoitureForm").attr("data-modele-url");  
+      var marqueId = $(this).val();  
+
+      $.ajax({                      
+        url: url,                    
+        data: {
+          'marque': marqueId       
+        },
+        success: function (data) {  
+          $("#id_modele").html(data);  
+        }
+      });
+    });
+  </script>
 </body>
 </html>

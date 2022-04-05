@@ -1,25 +1,36 @@
 from django.forms import ModelForm
 from django.utils.translation import gettext_lazy as _
 from . import models
+from django import forms
+from .models import Voiture, Modele
 
-class LivreForm(ModelForm):
-    class Meta:
-        model = models.Livre
-        fields = ('titre', 'auteur', 'date_parution', 'nombre_pages','resume', 'mouvement')
-        labels = {
-            'titre' : _('Titre'),
-            'auteur' : _('Auteur') ,
-            'date_parution' : _('date de parution'),
-            'nombre_pages' : _('nombres de pages'),
-            'resume' : _('Résumé'),
-            'mouvement' : _('Mouvement Littéraire')
-        }
-        localized_fields = ('date_parution',)
-
-# class MouvementForm(ModelForm):
+# class VoitureForm(ModelForm):
 #     class Meta:
-#         model = models.Mouvement
-#         fields = ('mouvement_litteraire',)
+#         model = models.Voiture
+#         fields = ('marque', 'modele', 'date_production', 'nombre_places','puissance')
 #         labels = {
-#             'mouvement_litteraire' : _('Mouvement Litteraire')
+#             'marque' : _('Marque'),
+#             'modele' : _('Modèle') ,
+#             'date_production' : _('date de production'),
+#             'nombre_places' : _('nombre de places'),
+#             'puissance' : _('puissance')
 #         }
+#         localized_fields = ('date_production',)
+
+class VoitureForm(forms.ModelForm):
+    class Meta:
+        model = Voiture
+        fields = ('name', 'date_production', 'marque','modele')
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['modele'].queryset = Modele.objects.none()
+
+        if 'marque' in self.data:
+            try:
+                marque_id = int(self.data.get('marque'))
+                self.fields['modele'].queryset = Modele.objects.filter(marque_id=marque_id).order_by('name')
+            except (ValueError, TypeError):
+                pass
+        elif self.instance.pk:
+            self.fields['modele'].queryset = self.instance.marque.modele_set.order_by('name')

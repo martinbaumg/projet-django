@@ -1,29 +1,26 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
-from .forms import LivreForm
+from .forms import VoitureForm
 from . import  models
 from django import forms
-from bibliotheque.models import Livre
-from bibliotheque.models import Mouvement
-# from .forms import MouvementForm
+from bibliotheque.models import Voiture
+from django.urls import reverse_lazy
+from .models import Voiture, Modele
+
 
 def ajout(request):
-    # mouvement = Mouvement.objects.all()
+    marque_id = request.GET.get('marque')
+    modele = Modele.objects.filter(marque_id=marque_id).order_by('name')
     if request.method == "POST":
-        form = LivreForm(request)
+        form = VoitureForm(request)
         if form.is_valid():
-            livre = form.save()
-            mouvement = mouvement.save()
+            voiture = form.save()
             return HttpResponseRedirect("/")
         else:
-            return render(request,"ajout.html",{"form": form})
+            return render(request,"ajout.html",{"form": form, 'modele': modele})
     else :
-        form = LivreForm()
-        return render(request,"ajout.html",{"form" : form})
-
-# def ajout(request):
-#     mouvement = Mouvement.objects.all()
-#     return render(request, 'ajout.html', context={"mouvement": mouvement})
+        form = VoitureForm()
+        return render(request,"ajout.html",{"form" : form, 'modele': modele})
 
 
 def show(request):
@@ -32,62 +29,55 @@ def show(request):
 
 
 def traitement(request):
-    lform = LivreForm(request.POST)
+    lform = VoitureForm(request.POST)
     if lform.is_valid():
-        livre = lform.save()
+        voiture = lform.save()
         return HttpResponseRedirect("../tousleslivres")
     else:
         return render(request,"ajout.html",{"form": lform})
 
 
 def index(request):
-    liste = list(models.Livre.objects.all())
+    liste = list(models.Voiture.objects.all())
     return render(request, 'index.html', {'liste': liste})
 
 
 def affiche(request, id):
-    livre = models.Livre.objects.get(pk=id)
-    return render(request,"affiche.html",{"livre" : livre})
+    voiture = models.Voiture.objects.get(pk=id)
+    return render(request,"affiche.html",{"voiture" : voiture})
 
 
 def delete(request, id):
-    livre = models.Livre.objects.get(pk=id)
-    livre.delete()
+    voiture = models.Voiture.objects.get(pk=id)
+    voiture.delete()
     return HttpResponseRedirect("../tousleslivres")
 
 
 def update(request, id):
-    livre = models.Livre.objects.get(pk=id)
-    lform = LivreForm(livre.dico())
-    return render(request, "update.html", {"form": lform,"id":id})
+    marque_id = request.GET.get('marque')
+    modele = Modele.objects.filter(marque_id=marque_id).order_by('name')
+    voiture = models.Voiture.objects.get(pk=id)
+    lform = VoitureForm(voiture.dico())
+    return render(request, "update.html", {"form": lform,"id":id,'modele': modele})
 
 
 def traitementupdate(request, id):
-    lform = LivreForm(request.POST)
+    lform = VoitureForm(request.POST)
     if lform.is_valid():
-        livre = lform.save(commit=False)
-        livre.id = id;
-        livre.save()
+        voiture = lform.save(commit=False)
+        voiture.id = id;
+        voiture.save()
         return HttpResponseRedirect("../tousleslivres")
     else:
         return render(request, "update.html", {"form": lform, "id": id})
 
 
 def tous(request):
-    mouvement = models.Mouvement.objects.all()
-    liste = list(models.Livre.objects.all())
-    return render(request, 'livre.html', {'liste': liste, 'mouvement': mouvement})
+    voiture = list(models.Voiture.objects.all())
+    return render(request, 'livre.html', {'voiture': voiture})
 
 
-# def test(request):
-#     if request.method=="POST":
-#         if request.POST.get('mouvement_litteraire'):
-#             savevalue=Mouvement()
-#             savevalue.mouvement_litteraire=request.POST.get('mouvement_litteraire')
-#             savevalue.save()
-#             messages.success(request,'Votre mouvement' +savevalue.mouvement_litteraire+ 'a été enregistré')
-#             return render(request, 'menu.html')
-#     else:
-#             return render(request, 'menu.html')
-
-
+def load_modele(request):
+    marque_id = request.GET.get('marque')
+    modele = Modele.objects.filter(marque_id=marque_id).order_by('name')
+    return render(request, 'modele_options.html', {'modele': modele})

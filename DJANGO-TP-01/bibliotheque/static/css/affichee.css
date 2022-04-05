@@ -8,9 +8,15 @@ body {
     padding: 15% 28%;
     font-family: 'Roboto';
     font-weight: 500;
+    background: #2980B9;
+    background: -webkit-linear-gradient(to right, #FFFFFF, #6DD5FA, #2980B9);  
+    background: linear-gradient(to right, #FFFFFF, #6DD5FA, #2980B9); 
 }
 
 .fiche {
     padding: 1rem;
-    background-color: aquamarine;
+}
+
+.fiche {
+    color: rgb(59, 59, 59);
 }

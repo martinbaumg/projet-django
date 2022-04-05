@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Modification</title>
 </head>
 <body>
     <form method="post" action="../traitementupdate/{{id}}">
@@ -10,5 +10,25 @@
         {{ form.as_ul }}
         <input type="submit" value="envoyer les données"\>
     </form>
+  <form method="post" id="VoitureForm" data-modele-url="{% url 'ajax_load_modele' %}" novalidate>
+    <a href="../tousleslivres/">Retour</a>
+  </form>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script>
+    $("#id_marque").change(function () {
+      var url = $("#VoitureForm").attr("data-modele-url");  
+      var marqueId = $(this).val();  
+
+      $.ajax({                      
+        url: url,                    
+        data: {
+          'marque': marqueId       
+        },
+        success: function (data) {  
+          $("#id_modele").html(data);  
+        }
+      });
+    });
+  </script>
 </body>
 </html>
