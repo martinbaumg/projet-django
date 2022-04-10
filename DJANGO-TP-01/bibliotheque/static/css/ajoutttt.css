@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Montserrat:700");
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    margin: 0px;
+    padding: 0px;
+    font-weight: 500;
+}
+
+a {
+    text-decoration-color: none;
+    text-decoration-line: none;
+    text-decoration-style: none;
+    color: black;
+}
+
+a:hover {
+    transition-duration: 300ms;
+    color: #3891ff
+}
+
+.linka {
+    color: #3891ff
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #ffff;
+    position: sticky;
+    top: 0;
+}
+
+nav h1 {
+    font-size: 120%;
+    display: flex;
+    align-items: center;
+}
+
+nav .onglets {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+nav .onglets p {
+    font-size: 90%;
+    margin-right: 25px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition-duration: 300ms;
+}
+
+nav .onglets input {
+    margin: 8px 20px;
+    padding: 13px;
+    border-radius: 30px;
+    border: none;
+    outline: none;
+    background-color: #f2f2f2;
+}
+
+
+nav a {
+    text-decoration-color: none;
+    text-decoration-line: none;
+    text-decoration-style: none;
+    color: black;
+    font-family: 'Open Sans', sans-serif;
+    margin-top: 20px;
+}
+
+nav h1 {
+    font-family: 'Open Sans', sans-serif;
+    margin-top: 17px;
+}
+
+.button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 60px;
+}
+
+.buttton {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.quest div {
+    margin-top: 20px;
+}
+
+.quest {
+    margin-right: 40px;
+    margin-left: 40px;
+}
+
