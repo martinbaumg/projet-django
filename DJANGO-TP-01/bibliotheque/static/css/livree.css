@@ -9,6 +9,10 @@ body {
     font-weight: 500;
 }
 
+body {
+    background-color: #efefef;
+}
+
 a {
     text-decoration-color: none;
     text-decoration-line: none;
@@ -100,12 +104,6 @@ nav h1 {
    margin-right: 15px;
 }
 
-.les-livres {
-    text-align: center;
-    margin-top: 150px;
-    list-style: none;
-}
-
 .styles {
     display: flex;
     text-align: center;
@@ -118,4 +116,28 @@ nav h1 {
 
 .styles a {
     color: white;
+}
+
+.les-livres {
+    text-align: center;
+    list-style: none;
+    margin: 0px 220px 0px 220px;
+}
+
+
+li {
+    align-items: center;
+    background-color: #efefef;
+    padding: 0.3rem;
+    margin-top: 40px;
+}
+
+.tout {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.les-livres p {
+    margin-top: 90px;
 }
