@@ -4,18 +4,6 @@ from . import models
 from django import forms
 from .models import Voiture, Modele
 
-# class VoitureForm(ModelForm):
-#     class Meta:
-#         model = models.Voiture
-#         fields = ('marque', 'modele', 'date_production', 'nombre_places','puissance')
-#         labels = {
-#             'marque' : _('Marque'),
-#             'modele' : _('Modèle') ,
-#             'date_production' : _('date de production'),
-#             'nombre_places' : _('nombre de places'),
-#             'puissance' : _('puissance')
-#         }
-#         localized_fields = ('date_production',)
 
 class VoitureForm(forms.ModelForm):
     class Meta:

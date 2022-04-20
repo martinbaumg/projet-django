@@ -16,14 +16,16 @@ a {
     color: black;
 }
 
-.promo {
-    font-family: 'Poppins';
-    color: white;
-    background-color: #3891ff;
-    font-size: 85%;
-    font-weight: 600;
-    text-align: center;
-    padding: 0.1rem 0rem;
+.les-livres li div a {
+    text-decoration-color: none;
+    text-decoration-line: none;
+    text-decoration-style: none;
+    color: black;
+}
+
+.les-livres li div a:hover {
+    transition-duration: 300ms;
+    color: #3891ff
 }
 
 a:hover {
@@ -67,11 +69,26 @@ nav .onglets p {
 
 nav .onglets input {
     margin: 8px 20px;
-    padding: 15px;
+    padding: 13px;
     border-radius: 30px;
     border: none;
     outline: none;
     background-color: #f2f2f2;
+}
+
+
+nav a {
+    text-decoration-color: none;
+    text-decoration-line: none;
+    text-decoration-style: none;
+    color: black;
+    font-family: 'Open Sans', sans-serif;
+    margin-top: 20px;
+}
+
+nav h1 {
+    font-family: 'Open Sans', sans-serif;
+    margin-top: 17px;
 }
 
 .details {

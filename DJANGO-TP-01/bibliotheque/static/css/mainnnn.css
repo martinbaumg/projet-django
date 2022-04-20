@@ -10,58 +10,73 @@ body {
 }
 
 a {
-    text-decoration-color: none;
-    text-decoration-line: none;
-    text-decoration-style: none;
-    color: black;
+  text-decoration-color: none;
+  text-decoration-line: none;
+  text-decoration-style: none;
+  color: black;
 }
 
 a:hover {
-    transition-duration: 300ms;
-    color: #3891ff
+  transition-duration: 300ms;
+  color: #3891ff
 }
 
 .linka {
-    color: #3891ff
+  color: #3891ff
 }
 
 nav {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    padding: 20px;
-    background-color: #ffff;
-    position: sticky;
-    top: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: #ffff;
+  position: sticky;
+  top: 0;
 }
 
 nav h1 {
-    font-size: 120%;
-    display: flex;
-    align-items: center;
+  font-size: 120%;
+  display: flex;
+  align-items: center;
 }
 
 nav .onglets {
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 nav .onglets p {
-    font-size: 90%;
-    margin-right: 25px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    transition-duration: 300ms;
+  font-size: 90%;
+  margin-right: 25px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition-duration: 300ms;
 }
 
 nav .onglets input {
-    margin: 8px 20px;
-    padding: 15px;
-    border-radius: 30px;
-    border: none;
-    outline: none;
-    background-color: #f2f2f2;
+  margin: 8px 20px;
+  padding: 13px;
+  border-radius: 30px;
+  border: none;
+  outline: none;
+  background-color: #f2f2f2;
+}
+
+
+nav a {
+  text-decoration-color: none;
+  text-decoration-line: none;
+  text-decoration-style: none;
+  color: black;
+  font-family: 'Open Sans', sans-serif;
+  margin-top: 20px;
+}
+
+nav h1 {
+  font-family: 'Open Sans', sans-serif;
+  margin-top: 17px;
 }
 
 .details {
