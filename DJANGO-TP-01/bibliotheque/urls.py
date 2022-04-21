@@ -9,6 +9,6 @@ urlpatterns = [
     path("delete/<int:id>",views.delete),
     path("update/<int:id>",views.update),
     path("traitementupdate/<int:id>",views.traitementupdate),
-    path("tousleslivres/", views.tous),
+    path("tous/", views.tous),
     path('ajax/load-modele/', views.load_modele, name='ajax_load_modele'),
 ]

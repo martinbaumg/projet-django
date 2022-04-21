@@ -23,16 +23,11 @@ def ajout(request):
         return render(request,"ajout.html",{"form" : form, 'modele': modele})
 
 
-def show(request):
-    showmouv=Mouvement.objects.all()
-    return render(request, 'show.html', {"Mouvement": showmouv})
-
-
 def traitement(request):
     lform = VoitureForm(request.POST)
     if lform.is_valid():
         voiture = lform.save()
-        return HttpResponseRedirect("../tousleslivres")
+        return HttpResponseRedirect("../tous")
     else:
         return render(request,"ajout.html",{"form": lform})
 
@@ -50,7 +45,7 @@ def affiche(request, id):
 def delete(request, id):
     voiture = models.Voiture.objects.get(pk=id)
     voiture.delete()
-    return HttpResponseRedirect("../tousleslivres")
+    return HttpResponseRedirect("../tous")
 
 
 def update(request, id):
@@ -67,7 +62,7 @@ def traitementupdate(request, id):
         voiture = lform.save(commit=False)
         voiture.id = id;
         voiture.save()
-        return HttpResponseRedirect("../tousleslivres")
+        return HttpResponseRedirect("../tous")
     else:
         return render(request, "update.html", {"form": lform, "id": id})
 
