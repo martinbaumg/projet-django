@@ -69,7 +69,7 @@ def traitementupdate(request, id):
 
 def tous(request):
     voiture = list(models.Voiture.objects.all())
-    return render(request, 'livre.html', {'voiture': voiture})
+    return render(request, 'tous.html', {'voiture': voiture})
 
 
 def load_modele(request):
