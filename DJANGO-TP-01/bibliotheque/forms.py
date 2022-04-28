@@ -8,7 +8,7 @@ from .models import Voiture, Modele
 class VoitureForm(forms.ModelForm):
     class Meta:
         model = Voiture
-        fields = ('name', 'date_production', 'marque','modele')
+        fields = ('name', 'date_de_commande', 'marque','modele')
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

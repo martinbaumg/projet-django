@@ -9,19 +9,19 @@
 </head>
 <body>
     <nav>
-        <h1>Mon site de voitures personnalisées</h1>
+        <h1>Mon site de commande de voitures</h1>
         <div class="onglets">
             <p class="link"><a href="../">Accueil</a></p>
-            <p class="link"><a href="../../ajout/">Ajouter une voiture</a></p>
-            <p class="link"><a class="linka" href="#">Toutes les voitures</a></p>
+            <p class="link"><a href="../../ajout/">Commander une voiture</a></p>
+            <p class="link"><a class="linka" href="#">Les voitures commandées</a></p>
             <form>
                 <input type="search" placeholder="Rechercher">
             </form>
         </div>
     </nav>
     <div class="fiche">
-        <h1>{{voiture.modele}}</h1>
-        <p>Cette {{ voiture.modele }} a été produite par {{voiture.marque}} et est paru le {{voiture.date_production}}.</p>
+        <h1>Commande d'une {{voiture.modele}}</h1>
+        <p>{{voiture.name}} a commandé le {{voiture.date_de_commande}} une {{voiture.marque}} {{voiture.modele}}</p>
         <div class="bouton">
             <a href="../../tous">
                 <button type="button" class="btn btn-secondary">Retour</button>

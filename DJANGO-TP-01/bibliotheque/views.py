@@ -76,3 +76,6 @@ def load_modele(request):
     marque_id = request.GET.get('marque')
     modele = Modele.objects.filter(marque_id=marque_id).order_by('name')
     return render(request, 'modele_options.html', {'modele': modele})
+    
+def test(request):
+    return render(request, 'test.html')

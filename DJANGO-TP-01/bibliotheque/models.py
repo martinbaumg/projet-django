@@ -16,7 +16,7 @@ class Modele(models.Model):
 
 class Voiture(models.Model):
     name = models.CharField(max_length=100)
-    date_production = models.DateField(null=True, blank=True)
+    date_de_commande = models.DateField(null=True, blank=True)
     marque = models.ForeignKey(Marque, on_delete=models.SET_NULL, null=True)
     modele = models.ForeignKey(Modele, on_delete=models.SET_NULL, null=True)
 
@@ -24,4 +24,4 @@ class Voiture(models.Model):
         return self.name 
 
     def dico(self):
-        return {"marque" : self.marque, "modele" : self.modele, "date_production" : self.date_production}
+        return {"marque" : self.marque, "modele" : self.modele, "date_de_commande" : self.date_de_commande}
