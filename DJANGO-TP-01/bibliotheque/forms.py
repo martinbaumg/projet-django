@@ -2,7 +2,7 @@ from django.forms import ModelForm
 from django.utils.translation import gettext_lazy as _
 from . import models
 from django import forms
-from .models import Voiture, Modele
+from .models import Voiture, Modele, Marque
 
 
 class VoitureForm(forms.ModelForm):
@@ -22,3 +22,14 @@ class VoitureForm(forms.ModelForm):
                 pass
         elif self.instance.pk:
             self.fields['modele'].queryset = self.instance.marque.modele_set.order_by('name')
+            
+            
+class AjoutForm(ModelForm):
+    class Meta:
+        model = Marque
+        fields = ('name',)
+
+class AjoutMoForm(ModelForm):
+        class Meta:
+            model = Modele
+            fields = ('marque', 'name',)

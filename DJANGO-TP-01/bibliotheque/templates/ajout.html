@@ -39,9 +39,11 @@
         <div class="row">
           <div class="form-group col-sm-6">
             {{form.marque|as_crispy_field}}
+            <div id="emailHelp" class="form-text">Vous ne trouvez pas votre marque ? Ajoutez la <a href="{% url 'ajoutmarque' %}">depuis ce lien</a></div>
           </div>
           <div class="form-group col-sm-6">
             {{form.modele|as_crispy_field}}
+            <div id="emailHelp" class="form-text">Vous ne trouvez pas votre modèle ? Ajoutez le <a href="{% url 'ajoutmodele' %}">depuis ce lien</a></div>
           </div>
         </div>
         <div class="buttton">

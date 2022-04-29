@@ -25,3 +25,4 @@ class Voiture(models.Model):
 
     def dico(self):
         return {"marque" : self.marque, "modele" : self.modele, "date_de_commande" : self.date_de_commande}
+        

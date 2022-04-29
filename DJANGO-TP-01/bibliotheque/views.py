@@ -1,11 +1,13 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from .forms import VoitureForm
+from .forms import AjoutForm
+from .forms import AjoutMoForm
 from . import  models
 from django import forms
 from bibliotheque.models import Voiture
 from django.urls import reverse_lazy
-from .models import Voiture, Modele
+from .models import Voiture, Modele, Marque
 
 
 def ajout(request):
@@ -77,5 +79,30 @@ def load_modele(request):
     modele = Modele.objects.filter(marque_id=marque_id).order_by('name')
     return render(request, 'modele_options.html', {'modele': modele})
     
-def test(request):
-    return render(request, 'test.html')
+def ajoutmarque(request):
+    submitted = False
+    if request.method == "POST":
+        form = AjoutForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return render(request, 'merci.html')
+    else: 
+        form = AjoutForm
+        if 'submitted' in request.GET:
+            submitted = True
+    
+    return render(request, 'ajoutmarque.html', {'form': form})
+    
+def ajoutmodele(request):
+    submitted = False
+    if request.method == "POST":
+        form = AjoutMoForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return render(request, 'merci.html')
+    else: 
+        form = AjoutMoForm
+        if 'submitted' in request.GET:
+            submitted = True
+    
+    return render(request, 'ajoutmodele.html', {'form': form})
