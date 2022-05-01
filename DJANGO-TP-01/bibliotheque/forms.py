@@ -9,6 +9,7 @@ class VoitureForm(forms.ModelForm):
     class Meta:
         model = Voiture
         fields = ('name', 'date_de_commande', 'marque','modele')
+        labels = {"modele":"Modèle", "name":"Votre nom :", "date_de_commande":"Date de commande :"}
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -28,8 +29,10 @@ class AjoutForm(ModelForm):
     class Meta:
         model = Marque
         fields = ('name',)
+        labels = {"name":"Nom de la marque"}
 
 class AjoutMoForm(ModelForm):
         class Meta:
             model = Modele
             fields = ('marque', 'name',)
+            labels = {"name":"Nom du modèle"}
