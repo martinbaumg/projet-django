@@ -85,7 +85,7 @@ def ajoutmarque(request):
         form = AjoutForm(request.POST)
         if form.is_valid():
             form.save()
-            return render(request, 'merci.html')
+            return HttpResponseRedirect("/ajout")
     else: 
         form = AjoutForm
         if 'submitted' in request.GET:
@@ -99,7 +99,7 @@ def ajoutmodele(request):
         form = AjoutMoForm(request.POST)
         if form.is_valid():
             form.save()
-            return render(request, 'merci.html')
+            return HttpResponseRedirect("/ajout")
     else: 
         form = AjoutMoForm
         if 'submitted' in request.GET:

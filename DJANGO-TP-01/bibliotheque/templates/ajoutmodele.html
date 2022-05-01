@@ -1,23 +1,40 @@
+{% extends 'base.html' %}
 {% load static %}
 {% load crispy_forms_tags %}
-<!DOCTYPE html>
-<html lang="en">
+{% block content %}
 <head>
-	<meta charset="UTF-8">
-	<title>Commander une voiture</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/ajoutmodele.css' %}">
+	<title>{% block title %}Ajouter un modèle à la base de données{% endblock %}</title>
 </head>
-<body>
-		merci d'avoir ajouté la marque
-		maintenant ajoute un modele selon la marque que tu veux 
-		:
+	<nav>
+		<h1>Mon site de commande de voitures</h1>
+		<div class="onglets">
+			<p class="link"><a href="../">Accueil</a></p>
+			<p class="link"><a class="linka" href="#">Commander une voiture</a></p>
+			<p class="link"><a href="../tous">Les voitures commandées</a></p>
+			<form>
+				<input type="search" placeholder="Rechercher">
+			</form>
+		</div>
+	</nav>
 		<form action="" method=POST>
 			{% csrf_token %}
-			
-			{{form.as_p}}
-			
-			<input type="submit" name="" value="Submit">
-			
+			<div class="form1">
+				<div class="form2">
+					<div class="row">
+			  		<div class="form-group col-sm-5">
+						{{form.marque|as_crispy_field}}
+						<div id="emailHelp" class="form-text">Sélectionnez la marque à laquelle vous voulez ajouter le modèle.</div>
+			  		</div>
+			  		<div class="form-group col-sm-5">
+						{{form.name|as_crispy_field}}
+						<div id="emailHelp" class="form-text">Ajoutez le modèle que vous voulez</div>
+			  		</div>
+					</div>
+				</div>
+				<div class="boutonsub">
+					<input class=" btn btn-primary" type="submit" name="" value="Suivant">
+				</div>
+			</div>
 		</form>
-	
-</body>
-</html>
+{% endblock %}
