@@ -2,7 +2,7 @@
 {% load static %}
 {% block content %}
 <head>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/livree.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/livreee.css' %}">
     <title>{% block title %}Tous les voitures commandées{% endblock %}</title>
 </head>
 <body>
@@ -17,6 +17,7 @@
             </form>
         </div>
     </nav>
+   <div><br><br><br></div>
     <div class="test">
         <div class="les-livres">
             {% for l in voiture %}
@@ -27,9 +28,9 @@
                             <p>
                             {{l.marque}} {{l.modele}}, commandé par {{l.name}}
                                 <div class="details">
-                                    <a href="../affiche/{{l.id}}">afficher les détails</a>
+                                    <a href="../affiche/{{l.id}}">afficher détails</a>
                                     <a href="../delete/{{l.id}}">supprimer</a>
-                                    <a href="../update/{{l.id}}">effectuer une mise à jour</a>
+                                    <a href="../update/{{l.id}}">mettre à jour</a>
                                 </div>
                             </p>
                     </section>
@@ -37,4 +38,5 @@
             {%endfor%}
         </div> 
     </div>
+<div><br><br><br></div>
 {% endblock %}

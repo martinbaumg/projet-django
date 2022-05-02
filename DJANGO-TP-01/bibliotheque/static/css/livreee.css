@@ -2,15 +2,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
 @import url("https://fonts.googleapis.com/css?family=Montserrat:700");
 
+
+
+
+
 body {
     font-family: 'Open Sans', sans-serif;
     margin: 0px;
     padding: 0px;
-}
-
-body {
     background-color: #efefef;
 }
+
+
+
 
 a {
     text-decoration-color: none;
@@ -19,22 +23,7 @@ a {
     color: black;
 }
 
-.les-livres li div a {
-    text-decoration-color: none;
-    text-decoration-line: none;
-    text-decoration-style: none;
-    color: black;
-}
 
-.les-livres li div a:hover {
-    transition-duration: 300ms;
-    color: #3891ff
-}
-
-a:hover {
-    transition-duration: 300ms;
-    color: #3891ff
-}
 
 .linka {
     color: #3891ff
@@ -96,8 +85,27 @@ nav h1 {
 }
 
 
+.les-livres li div a {
+    text-decoration-color: none;
+    text-decoration-line: none;
+    text-decoration-style: none;
+    color: black;
+}
+
+.les-livres li div a:hover {
+    transition-duration: 300ms;
+    color: #3891ff
+}
+
+a:hover {
+    transition-duration: 300ms;
+    color: #3891ff
+}
+
+
 .details a {
    margin-right: 15px;
+   font-size: 14px;
 }
 
 .les-livres {
@@ -139,6 +147,7 @@ span {
   background-color: #ffff;
 
 }
+
 
 
 
