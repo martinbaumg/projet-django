@@ -1,18 +1,57 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
 <head>
-    <meta charset="UTF-8">
-    <title>Modification</title>
+    <title>{% block title %}Modifications{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/ajout.css' %}">
 </head>
-<body>
-    <form method="post" action="../traitementupdate/{{id}}">
-        {% csrf_token %}
-        {{ form.as_ul }}
-        <input type="submit" value="envoyer les données"\>
-    </form>
-  <form method="post" id="VoitureForm" data-modele-url="{% url 'ajax_load_modele' %}" novalidate>
-    <a href="../tous/">Retour</a>
-  </form>
+   <nav>
+        <h1>Mon site de commande de voitures</h1>
+        <div class="onglets">
+            <p class="link"><a href="../">Accueil</a></p>
+            <p class="link"><a href="../ajout">Commander une voiture</a></p>
+            <p class="link"><a class="linka" href="../tous">Les voitures commandées</a></p>
+            <form>
+                <input type="search" placeholder="Rechercher">
+            </form>
+        </div>
+    </nav>
+    <div class="letout">
+      <form class="quest" method="post" action="/traitement/">
+          {% csrf_token %}
+        <div class="form-row">
+          <div class="form-group">
+            {{form.name|as_crispy_field}}
+            <div id="emailHelp" class="form-text">Votre nom et prénom</div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            {{form.date_de_commande|as_crispy_field}}
+            <div id="emailHelp" class="form-text">Sous la forme AAAA-MM-JJ</div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group col-sm-6">
+            {{form.marque|as_crispy_field}}
+            <div id="emailHelp" class="form-text">Vous ne trouvez pas votre marque ? Ajoutez la <a href="{% url 'ajoutmarque' %}">depuis ce lien</a></div>
+          </div>
+          <div class="form-group col-sm-6">
+            {{form.modele|as_crispy_field}}
+            <div id="emailHelp" class="form-text">Vous ne trouvez pas votre modèle ? Ajoutez le <a href="{% url 'ajoutmodele' %}">depuis ce lien</a></div>
+          </div>
+        </div>
+        <div class="buttton">
+          <input id="butt" class=" btn btn-primary" type="submit" value="Envoyer les données"\>
+        </div>
+      </form>
+      <div class="button">
+      <form method="post" id="VoitureForm" data-modele-url="{% url 'ajax_load_modele' %}" novalidate>
+        <a class="btn btn-secondary"href="/">Retour</a>
+      </form>
+    </div>
+</div>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script>
     $("#id_marque").change(function () {
@@ -30,5 +69,4 @@
       });
     });
   </script>
-</body>
-</html>
+{% endblock %}

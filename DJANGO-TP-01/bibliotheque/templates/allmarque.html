@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<head>
+ <link rel="stylesheet" type="text/css" href="{% static 'css/allmarque.css' %}">
+</head>
+<!--
+<section class="alltout">
+
+
+
+{% for marque in marque %}
+<div class="espace">
+<div class="row">
+<div class="col-sm-6">
+  <div class="voitures">
+	<div class="card">
+	  <div class="card-body">
+		<h5 class="card-title">{{marque.name}}</h5>
+		  <p class="card-text"><br></p>
+		<a href="{% url 'ajoutmodele' %}" class="btn btn-primary">Ajouter un modèle à cette marque</a>
+		<a href="{% url 'deletemarque' marque.id %}" class="btn btn-danger">Supprimer cette marque</a>
+	  </div>
+	</div>
+  </div>
+</div>
+</div>
+</div>
+  {% endfor %}
+</div>
+</div>
+
+{% for modele in modele %}
+<div class="espace">
+	<div class="row">
+		<div class="col-sm-6">
+  			<div class="voitures">
+				<div class="card">
+	  				<div class="card-body">
+						<h5 class="card-title">{{modele.name}}</h5>
+		  				<p class="card-text"><br></p>
+						<a href="{% url 'ajoutmodele' %}" class="btn btn-primary">Ajouter un modèle à cette marque</a>
+						<a href="" class="btn btn-danger">Supprimer cette marque</a>
+	  				</div>
+				</div>
+  			</div>
+		</div>
+	</div>
+</div>
+  {% endfor %}
+</div>
+</div>
+</section>
+-->
+<section class="alltout">
+
+<div class="row">
+	
+	
+  <div class="col-sm-6">
+	 
+	  {% for marque in marque %}
+	  <div class="espace">
+	<div class="card">
+	  <div class="card-body">
+		<h5 class="card-title">{{marque.name}}</h5>
+		<p class="card-text"><br></p>
+		<a href="{% url 'ajoutmodele' %}" class="btn btn-primary">Ajouter un modèle à cette marque</a>
+		<a href="{% url 'deletemarque' marque.id %}" class="btn btn-danger">Supprimer cette marque</a>
+	  </div>
+	</div>
+	</div>
+	{% endfor %}
+	
+  </div>
+ 
+  <div class="col-sm-6">
+	  {% for modele in modele %}
+	  <div class="espace">
+	<div class="card">
+	  <div class="card-body">
+		<h5 class="card-title">{{modele.name}}</h5>
+		<p class="card-text"><br></p>
+		<a href="{% url 'ajoutmodele' %}" class="btn btn-primary">Ajouter un modèle à cette marque</a>
+		<a href="" class="btn btn-danger">Supprimer cette marque</a>
+	  </div>
+	</div>
+	</div>
+	{% endfor %}
+  </div>
+</div>
+
+</section>
+
+
+
+{% endblock %}

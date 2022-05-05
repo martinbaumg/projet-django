@@ -71,7 +71,9 @@ def traitementupdate(request, id):
 
 def tous(request):
     voiture = list(models.Voiture.objects.all())
-    return render(request, 'tous.html', {'voiture': voiture})
+    marque = list(models.Marque.objects.all())
+    modele = list(models.Modele.objects.all())
+    return render(request, 'tous.html', {'voiture': voiture, 'marque': marque, 'modele': modele})
 
 
 def load_modele(request):
@@ -106,3 +108,14 @@ def ajoutmodele(request):
             submitted = True
     
     return render(request, 'ajoutmodele.html', {'form': form})
+    
+
+def allmarque(request):
+    marque = models.Marque.objects.all()
+    modele = models.Modele.objects.all()
+    return render(request, 'allmarque.html', {'marque': marque, 'modele': modele})
+
+def deletemarque(request, marque_id):
+    marque = models.Marque.objects.get(pk=marque_id)
+    marque.delete()
+    return HttpResponseRedirect("../allmarque")
