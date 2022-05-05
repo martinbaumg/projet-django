@@ -12,13 +12,14 @@
             <p class="link"><a href="../">Accueil</a></p>
             <p class="link"><a href="../ajout">Commander une voiture</a></p>
             <p class="link"><a class="linka" href="../tous">Les voitures commandées</a></p>
+            <p class="link"><a href="../allmarque/">La base de données</a></p>
             <form>
                 <input type="search" placeholder="Rechercher">
             </form>
         </div>
     </nav>
     <div class="letout">
-      <form class="quest" method="post" action="/traitement/">
+      <form class="quest" method="post" action="/traitementupdate/{{id}}">
           {% csrf_token %}
         <div class="form-row">
           <div class="form-group">

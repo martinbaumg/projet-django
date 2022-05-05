@@ -2,8 +2,42 @@
 {% load static %}
 {% block content %}
 <head>
- <link rel="stylesheet" type="text/css" href="{% static 'css/allmarque.css' %}">
+ <link rel="stylesheet" type="text/css" href="{% static 'css/allmarquee.css' %}">
 </head>
+<nav>
+	<h1>Mon site de commande de voitures</h1>
+	<div class="onglets">
+		<p class="link"><a href="../">Accueil</a></p>
+		<p class="link"><a href="../ajout">Commander une voiture</a></p>
+		<p class="link"><a href="../tous">Les voitures commandées</a></p>
+		<p class="link"><a class="linka" href="#">La base de données</a></p>
+		<form>
+			<input type="search" placeholder="Rechercher">
+		</form>
+	</div>
+</nav>
+<div class="alltout">
+	<table class="table table-light table-striped table-bordered table-sm">
+		<thead>
+			<tr>
+		  	<th scope="col">Marque</th>
+		  	<th scope="col">Modèle</th>
+			</tr>
+	  	</thead>
+	  	<tbody>
+		  	{% for modele in modele %}
+			<tr>
+		  	<td>{{modele.marque}}</td>
+		  	<td>{{modele}}</td>
+			</tr>
+			{% endfor %}
+			<td> <a href="{% url 'ajoutmarque' %}">Ajouter une marque</a></td>
+			<td><a href="{% url 'ajoutmodele' %}">Ajouter un modèle</a></td>
+	  	</tbody>
+	</table>
+</div>
+
+
 <!--
 <section class="alltout">
 
@@ -34,16 +68,16 @@
 <div class="espace">
 	<div class="row">
 		<div class="col-sm-6">
-  			<div class="voitures">
+			  <div class="voitures">
 				<div class="card">
-	  				<div class="card-body">
+					  <div class="card-body">
 						<h5 class="card-title">{{modele.name}}</h5>
-		  				<p class="card-text"><br></p>
+						  <p class="card-text"><br></p>
 						<a href="{% url 'ajoutmodele' %}" class="btn btn-primary">Ajouter un modèle à cette marque</a>
 						<a href="" class="btn btn-danger">Supprimer cette marque</a>
-	  				</div>
+					  </div>
 				</div>
-  			</div>
+			  </div>
 		</div>
 	</div>
 </div>
@@ -51,8 +85,8 @@
 </div>
 </div>
 </section>
--->
-<section class="alltout">
+
+
 
 <div class="row">
 	
@@ -90,8 +124,8 @@
   </div>
 </div>
 
-</section>
 
 
+-->
 
 {% endblock %}

@@ -111,9 +111,10 @@ def ajoutmodele(request):
     
 
 def allmarque(request):
+    voiture = list(models.Voiture.objects.all())
     marque = models.Marque.objects.all()
     modele = models.Modele.objects.all()
-    return render(request, 'allmarque.html', {'marque': marque, 'modele': modele})
+    return render(request, 'allmarque.html', {'marque': marque, 'modele': modele, 'voiture': voiture})
 
 def deletemarque(request, marque_id):
     marque = models.Marque.objects.get(pk=marque_id)
