@@ -14,5 +14,5 @@ urlpatterns = [
     path('ajoutmarque/', views.ajoutmarque, name='ajoutmarque'),
     path('ajoutmodele/', views.ajoutmodele, name='ajoutmodele'),
     path('allmarque/', views.allmarque, name='allmarque'),
-    path('deletemarque/<marque_id>', views.deletemarque, name='deletemarque'),
+    path('deletemodele/<modele_id>', views.deletemodele, name='deletemodele'),
 ]

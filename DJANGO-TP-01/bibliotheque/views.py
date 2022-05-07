@@ -116,7 +116,7 @@ def allmarque(request):
     modele = models.Modele.objects.all()
     return render(request, 'allmarque.html', {'marque': marque, 'modele': modele, 'voiture': voiture})
 
-def deletemarque(request, marque_id):
-    marque = models.Marque.objects.get(pk=marque_id)
-    marque.delete()
+def deletemodele(request, modele_id):
+    modele = models.Modele.objects.get(pk=modele_id)
+    modele.delete()
     return HttpResponseRedirect("../allmarque")

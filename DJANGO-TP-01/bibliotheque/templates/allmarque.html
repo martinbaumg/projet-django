@@ -3,6 +3,7 @@
 {% block content %}
 <head>
  <link rel="stylesheet" type="text/css" href="{% static 'css/allmarquee.css' %}">
+ <title>{% block title %}Toute la base de données{% endblock %}</title>
 </head>
 <nav>
 	<h1>Mon site de commande de voitures</h1>
@@ -26,9 +27,9 @@
 	  	</thead>
 	  	<tbody>
 		  	{% for modele in modele %}
-			<tr>
+			<tr>	
 		  	<td>{{modele.marque}}</td>
-		  	<td>{{modele}}</td>
+		  	<td><div class="dis"><p>{{modele}}</p><a href="{% url 'deletemodele' modele.id %}" class="btn btn-outline-danger">Supprimer</a></div></td> 
 			</tr>
 			{% endfor %}
 			<td> <a href="{% url 'ajoutmarque' %}">Ajouter une marque</a></td>
@@ -36,96 +37,5 @@
 	  	</tbody>
 	</table>
 </div>
-
-
-<!--
-<section class="alltout">
-
-
-
-{% for marque in marque %}
-<div class="espace">
-<div class="row">
-<div class="col-sm-6">
-  <div class="voitures">
-	<div class="card">
-	  <div class="card-body">
-		<h5 class="card-title">{{marque.name}}</h5>
-		  <p class="card-text"><br></p>
-		<a href="{% url 'ajoutmodele' %}" class="btn btn-primary">Ajouter un modèle à cette marque</a>
-		<a href="{% url 'deletemarque' marque.id %}" class="btn btn-danger">Supprimer cette marque</a>
-	  </div>
-	</div>
-  </div>
-</div>
-</div>
-</div>
-  {% endfor %}
-</div>
-</div>
-
-{% for modele in modele %}
-<div class="espace">
-	<div class="row">
-		<div class="col-sm-6">
-			  <div class="voitures">
-				<div class="card">
-					  <div class="card-body">
-						<h5 class="card-title">{{modele.name}}</h5>
-						  <p class="card-text"><br></p>
-						<a href="{% url 'ajoutmodele' %}" class="btn btn-primary">Ajouter un modèle à cette marque</a>
-						<a href="" class="btn btn-danger">Supprimer cette marque</a>
-					  </div>
-				</div>
-			  </div>
-		</div>
-	</div>
-</div>
-  {% endfor %}
-</div>
-</div>
-</section>
-
-
-
-<div class="row">
-	
-	
-  <div class="col-sm-6">
-	 
-	  {% for marque in marque %}
-	  <div class="espace">
-	<div class="card">
-	  <div class="card-body">
-		<h5 class="card-title">{{marque.name}}</h5>
-		<p class="card-text"><br></p>
-		<a href="{% url 'ajoutmodele' %}" class="btn btn-primary">Ajouter un modèle à cette marque</a>
-		<a href="{% url 'deletemarque' marque.id %}" class="btn btn-danger">Supprimer cette marque</a>
-	  </div>
-	</div>
-	</div>
-	{% endfor %}
-	
-  </div>
- 
-  <div class="col-sm-6">
-	  {% for modele in modele %}
-	  <div class="espace">
-	<div class="card">
-	  <div class="card-body">
-		<h5 class="card-title">{{modele.name}}</h5>
-		<p class="card-text"><br></p>
-		<a href="{% url 'ajoutmodele' %}" class="btn btn-primary">Ajouter un modèle à cette marque</a>
-		<a href="" class="btn btn-danger">Supprimer cette marque</a>
-	  </div>
-	</div>
-	</div>
-	{% endfor %}
-  </div>
-</div>
-
-
-
--->
 
 {% endblock %}
