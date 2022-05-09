@@ -1,29 +1,34 @@
-{% extends 'base.html' %}
-{% load static %}
-{% block content %}
+{% extends 'base.html' %} {% load static %} {% block content %}
 <head>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/affiche.css' %}">
-    <title>{% block title %} fiche {{voiture.modele}}{% endblock %}</title>
+  <link
+    rel="stylesheet"
+    type="text/css"
+    href="{% static 'css/affiche.css' %}"
+  />
+  <title>{% block title %} fiche {{voiture.modele}}{% endblock %}</title>
 </head>
-    <nav>
-        <h1>Mon site de commande de voitures</h1>
-        <div class="onglets">
-            <p class="link"><a href="../../">Accueil</a></p>
-            <p class="link"><a href="../../ajout/">Commander une voiture</a></p>
-            <p class="link"><a class="linka" href="#">Les voitures commandées</a></p>
-            <p class="link"><a href="../../allmarque/">La base de données</a></p>
-            <form>
-                <input type="search" placeholder="Rechercher">
-            </form>
-        </div>
-    </nav>
-    <div class="fiche">
-        <h1>Commande d'une {{voiture.modele}}</h1>
-        <p>{{voiture.name}} a commandé le {{voiture.date_de_commande}} une {{voiture.marque}} {{voiture.modele}}</p>
-        <div class="bouton">
-            <a href="../../tous">
-                <button type="button" class="btn btn-secondary">Retour</button>
-            </a>
-        </div> 
-    </div>
+<nav>
+  <h1>Mon site de commande de voitures</h1>
+  <div class="onglets">
+    <p class="link"><a href="../../">Accueil</a></p>
+    <p class="link"><a href="../../ajout/">Commander une voiture</a></p>
+    <p class="link"><a class="linka" href="#">Les voitures commandées</a></p>
+    <p class="link"><a href="../../allmarque/">La base de données</a></p>
+    <form>
+      <input type="search" placeholder="Rechercher" />
+    </form>
+  </div>
+</nav>
+<div class="fiche">
+  <h1>Commande d'une {{voiture.modele}}</h1>
+  <p>
+    {{voiture.name}} a commandé le {{voiture.date_de_commande}} une
+    {{voiture.marque}} {{voiture.modele}}
+  </p>
+  <div class="bouton">
+    <a href="../../tous">
+      <button type="button" class="btn btn-secondary">Retour</button>
+    </a>
+  </div>
+</div>
 {% endblock %}

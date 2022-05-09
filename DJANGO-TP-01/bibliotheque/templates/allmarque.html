@@ -1,41 +1,52 @@
-{% extends 'base.html' %}
-{% load static %}
-{% block content %}
+{% extends 'base.html' %} {% load static %} {% block content %}
 <head>
- <link rel="stylesheet" type="text/css" href="{% static 'css/allmarquee.css' %}">
- <title>{% block title %}Toute la base de données{% endblock %}</title>
+  <link
+    rel="stylesheet"
+    type="text/css"
+    href="{% static 'css/allmarquee.css' %}"
+  />
+  <title>{% block title %}Toute la base de données{% endblock %}</title>
 </head>
 <nav>
-	<h1>Mon site de commande de voitures</h1>
-	<div class="onglets">
-		<p class="link"><a href="../">Accueil</a></p>
-		<p class="link"><a href="../ajout">Commander une voiture</a></p>
-		<p class="link"><a href="../tous">Les voitures commandées</a></p>
-		<p class="link"><a class="linka" href="#">La base de données</a></p>
-		<form>
-			<input type="search" placeholder="Rechercher">
-		</form>
-	</div>
+  <h1>Mon site de commande de voitures</h1>
+  <div class="onglets">
+    <p class="link"><a href="../">Accueil</a></p>
+    <p class="link"><a href="../ajout">Commander une voiture</a></p>
+    <p class="link"><a href="../tous">Les voitures commandées</a></p>
+    <p class="link"><a class="linka" href="#">La base de données</a></p>
+    <form>
+      <input type="search" placeholder="Rechercher" />
+    </form>
+  </div>
 </nav>
 <div class="alltout">
-	<table class="table table-light table-striped table-bordered table-sm">
-		<thead>
-			<tr>
-		  	<th scope="col">Marque</th>
-		  	<th scope="col">Modèle</th>
-			</tr>
-	  	</thead>
-	  	<tbody>
-		  	{% for modele in modele %}
-			<tr>	
-		  	<td>{{modele.marque}}</td>
-		  	<td><div class="dis"><p>{{modele}}</p><a href="{% url 'deletemodele' modele.id %}" class="btn btn-outline-danger">Supprimer</a></div></td> 
-			</tr>
-			{% endfor %}
-			<td> <a href="{% url 'ajoutmarque' %}">Ajouter une marque</a></td>
-			<td><a href="{% url 'ajoutmodele' %}">Ajouter un modèle</a></td>
-	  	</tbody>
-	</table>
+  <table class="table table-light table-striped table-bordered table-sm">
+    <thead>
+      <tr>
+        <th scope="col">Marque</th>
+        <th scope="col">Modèle</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for modele in modele %}
+      <tr>
+        <td>{{modele.marque}}</td>
+        <td>
+          <div class="dis">
+            <p>{{modele}}</p>
+            <a
+              href="{% url 'deletemodele' modele.id %}"
+              class="btn btn-outline-danger"
+              >Supprimer</a
+            >
+          </div>
+        </td>
+      </tr>
+      {% endfor %}
+      <td><a href="{% url 'ajoutmarque' %}">Ajouter une marque</a></td>
+      <td><a href="{% url 'ajoutmodele' %}">Ajouter un modèle</a></td>
+    </tbody>
+  </table>
 </div>
 
 {% endblock %}
